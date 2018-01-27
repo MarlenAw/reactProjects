@@ -24,7 +24,8 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback" //add this "http://localhost:5000/auth/google/callback to "Authorized redirect URIs" under Credentials in console.developers.google.com ->
+      callbackURL: "/auth/google/callback", //add this "http://localhost:5000/auth/google/callback to "Authorized redirect URIs" under Credentials in console.developers.google.com ->
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       //to solve the problem of adding the same profile id everytime you visit the app..we need to call the function below to check if the users profile id exist or not
