@@ -27,19 +27,16 @@ passport.use(
       callbackURL: "/auth/google/callback", //add this "http://localhost:5000/auth/google/callback to "Authorized redirect URIs" under Credentials in console.developers.google.com ->
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       //to solve the problem of adding the same profile id everytime you visit the app..we need to call the function below to check if the users profile id exist or not
-      User.findOne({ googleID: profile.id }).then(existingUser => {
-        if (existingUser) {
-          // we already have a user with this profile id
-          done(null, existingUser);
-        } else {
-          // we don't have a user record with this profile id..add new record
-          new User({ googleID: profile.id })
-            .save()
-            .then(user => done(null, user)); //save it to the database
-        }
-      });
+      const existingUser = await User.findOne({ googleID: profile.id });
+      if (existingUser) {
+        // we already have a user with this profile id
+        return done(null, existingUser);
+      }
+      // we don't have a user record with this profile id..add new record
+      const user = await new User({ googleID: profile.id }).save();
+      done(null, user);
     }
   )
 );
