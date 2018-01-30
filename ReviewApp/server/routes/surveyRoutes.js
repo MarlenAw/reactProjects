@@ -6,7 +6,7 @@ const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
-  app.post('/api/dashboard', requireLogin, requireCredits, (req, res) => {  //check if the user loggedin first, then check if the user has credits!
+  app.post('/api/dashboard', requireLogin, requireCredits, async (req, res) => {  //check if the user loggedin first, then check if the user has credits!
     const { title, subject, body, recipients } = req.body; //taking it from surveySchema
 
     const survey = new Survey({
@@ -19,7 +19,20 @@ module.exports = app => {
     });
 
     const mailer = new Mailer(survey, surveyTemplate(survey));
-    mailer.send();
+
+
+    try{
+      await mailer.send();
+      await survey.save();
+      req.user.credits -= 1;
+      const user = await req.user.save();
+
+      res.send(user);
+      
+    }catch (err){
+      res.status(422).send(err);
+    }
+
   });
 }
 
