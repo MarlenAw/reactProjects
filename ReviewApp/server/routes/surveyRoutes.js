@@ -6,6 +6,11 @@ const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
+
+  app.get('/api/dashboard/thanks', (req, res) => {
+    res.send('Thanks for voting!');
+  });
+
   app.post('/api/dashboard', requireLogin, requireCredits, async (req, res) => {  //check if the user loggedin first, then check if the user has credits!
     const { title, subject, body, recipients } = req.body; //taking it from surveySchema
 
@@ -28,7 +33,7 @@ module.exports = app => {
       const user = await req.user.save();
 
       res.send(user);
-      
+
     }catch (err){
       res.status(422).send(err);
     }
