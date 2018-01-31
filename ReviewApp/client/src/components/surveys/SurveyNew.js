@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
 import SurveyForm from './SurveyForm';
+import SurveyFormReview from './SurveyFormReview';
+
 
 class SurveyNew extends Component {
+
+  state = { showFormReview: false };  // false because don't show it by default..i wanna see <SurveyForm /> first
+
+  renderContent(){
+      if(this.state.showFormReview){
+        return <SurveyFormReview />
+      }
+
+      return <SurveyForm onSurveySubmit={() => this.setState({ showFormReview: true})}/>
+  }
+
   render() {
     return (<div>
-      <SurveyForm />
+      {this.renderContent()}
     </div>);
   }
 }
