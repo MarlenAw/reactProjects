@@ -4,19 +4,12 @@ import {reduxForm, Field} from 'redux-form'; //reduxForm is actually named reduc
 import {Link} from 'react-router-dom';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
-
-
-const FIELDS = [
-  { label: 'Survey Title', name: 'title', noValueError: 'You must provide a title' },
-  { label: 'Subject Line', name: 'subject', noValueError: 'You must provide a subject' },
-  { label: 'Email Body', name: 'body', noValueError: 'You must ente an Email'},
-  { label: 'Recipient List', name: 'emails', noValueError: 'You must ente the recipient list' }
-];
+import formFields from './formFields';
 
 class SurveyForm extends Component {
 
   renderFields(){
-    return _.map(FIELDS, field => {
+    return _.map(formFields, field => {
       return <Field key={field.name} type="text" label={field.label} name={field.name} component={SurveyField}/>
     });
   }
@@ -51,7 +44,7 @@ function validate(values){
 
   errors.emails = validateEmails(values.emails || '');
 
-    _.each(FIELDS, ({name, noValueError}) => {
+    _.each(formFields, ({name, noValueError}) => {
       if(!values[name]){
         errors[name] = noValueError;
       }
