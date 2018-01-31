@@ -11,6 +11,11 @@ module.exports = app => {
     res.send('Thanks for voting!');
   });
 
+  app.post('/api/dashboard/webhooks', (req, res) =>{
+    console.log(req.body);
+    res.send({});
+  });
+
   app.post('/api/dashboard', requireLogin, requireCredits, async (req, res) => {  //check if the user loggedin first, then check if the user has credits!
     const { title, subject, body, recipients } = req.body; //taking it from surveySchema
 
