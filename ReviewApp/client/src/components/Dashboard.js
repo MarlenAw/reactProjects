@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
@@ -7,9 +8,9 @@ const Dashboard = () => {
 
 
       <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
+        <Link to="/dashboard/surveynew" class="btn-floating btn-large red">
           <i class="large material-icons">add</i>
-        </a>
+        </Link>
       </div>
     </div>
   );
