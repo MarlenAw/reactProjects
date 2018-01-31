@@ -6,10 +6,10 @@ import SurveyField from './SurveyField';
 
 
 const FIELDS = [
-  { label: 'Survey Title', name: 'title' },
-  { label: 'Subject Line', name: 'subject' },
-  { label: 'Email Body', name: 'body' },
-  { label: 'Recipient List', name: 'emails' }
+  { label: 'Survey Title', name: 'title', noValueError: 'You must provide a title' },
+  { label: 'Subject Line', name: 'subject', noValueError: 'You must provide a subject' },
+  { label: 'Email Body', name: 'body', noValueError: 'You must ente an Email'},
+  { label: 'Recipient List', name: 'emails', noValueError: 'You must ente the recipient list' }
 ];
 
 class SurveyForm extends Component {
@@ -41,6 +41,23 @@ class SurveyForm extends Component {
   }
 }
 
+function validate(values){
+  const errors = {};
+
+  // if(!values.title){
+  //   errors.title = 'You must provide a title';
+  // }                               //instead of doing this for every field we can iterate over using _.each and adding a property of noValueError to the FIELDS object
+
+    _.each(FIELDS, ({name, noValueError}) => {
+      if(!values[name]){
+        errors[name] = noValueError;
+      }
+    });
+
+  return errors;
+}
+
 export default reduxForm({ //handleSubmit() is a built in function from reduxForm..thats why we can use props
-  form: 'surveyForm'
+  form: 'surveyForm',
+  validate: validate
 })(SurveyForm);
