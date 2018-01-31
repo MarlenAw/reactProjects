@@ -42,7 +42,7 @@ function validate(values){
   //   errors.title = 'You must provide a title';
   // }                               //instead of doing this for every field we can iterate over using _.each and adding a property of noValueError to the FIELDS object
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
 
     _.each(formFields, ({name, noValueError}) => {
       if(!values[name]){
