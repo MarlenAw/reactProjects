@@ -1,3 +1,6 @@
+const _ = require("lodash");
+const Path = require("path-parser");
+const { URL } = require("url")
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
 const requireCredits = require("../middlewares/requireCredits");
@@ -7,13 +10,58 @@ const Survey = mongoose.model('surveys');
 
 module.exports = app => {
 
-  app.get('/api/dashboard/thanks', (req, res) => {
+  app.get('/api/dashboard/:surveyId/:choice', (req, res) => {
     res.send('Thanks for voting!');
   });
 
   app.post('/api/dashboard/webhooks', (req, res) =>{
-    console.log(req.body);
-    res.send({});
+
+    // const events = _.map(req.body, (event) => {
+    //
+    //   const pathname = new URL(event.url).pathname;
+    //   const p = new Path('/api/dashboard/:surveyId/:choice');
+    //   const match = p.test(pathname);
+    //
+    //   if(match){
+    //     return {email: event.email, surveyId: match.surveyId, choice: match.choice};
+    //   }
+    // });
+    //
+    // const compactEvents = _.compact(events); // this line is for NOT returning any elemnts that are UNDEFINED
+    // const uniqueEvents = _.uniqBy(compactEvents, 'emails', 'surveyId'); //this line is to make sure we don't have any duplicates of email or surveyId
+    //
+    // console.log(uniqueEvents);
+    //
+    // res.send({});
+
+    // REFACTORINGGGGGGG
+
+    const p = new Path('/api/dashboard/:surveyId/:choice');
+
+     _.chain(req.body)
+      .map(({email, url}) => {
+        const match = p.test(new URL(url).pathname);
+          if(match){
+                return {email, surveyId: match.surveyId, choice: match.choice};
+          }
+      })
+      .compact()
+      .uniqBy('email', 'surveyId')
+      .each(({surveyId, email, choice}) => {
+          Survey.updateOne({
+            _id: surveyId,
+            recipients: {
+            $elemMatch: {email: email, responded: false}
+            }
+          }, {
+            $inc: { [choice]: 1 },
+            $set: { 'recipients.$.responded': true },
+            lastResponded: new Date()
+          }).exec(); //exec = excute
+      })
+      .value();
+
+      res.send({});
   });
 
   app.post('/api/dashboard', requireLogin, requireCredits, async (req, res) => {  //check if the user loggedin first, then check if the user has credits!
