@@ -61,5 +61,6 @@ function validate(values){
 
 export default reduxForm({ //handleSubmit() is a built in function from reduxForm..thats why we can use props
   form: 'surveyForm',
-  validate: validate
+  validate: validate,
+  destroyOnUnmount: false //destroyOnUnmount is a built in reduxForm/reducer.. when click on back from <SurveyFormReview />..don't empty the input boxes..keep the data i inserted before hitting next
 })(SurveyForm);
