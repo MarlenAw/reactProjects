@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {reduxForm, Field} from 'redux-form'; //reduxForm is actually named reducer -> but we named it reduxForm for more clearity-check ../reducers/index.js
 import {Link} from 'react-router-dom';
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 
 const FIELDS = [
@@ -48,12 +49,13 @@ function validate(values){
   //   errors.title = 'You must provide a title';
   // }                               //instead of doing this for every field we can iterate over using _.each and adding a property of noValueError to the FIELDS object
 
+  errors.emails = validateEmails(values.emails || '');
+
     _.each(FIELDS, ({name, noValueError}) => {
       if(!values[name]){
         errors[name] = noValueError;
       }
     });
-
   return errors;
 }
 
