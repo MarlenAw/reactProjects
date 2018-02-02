@@ -8,5 +8,5 @@ npm-debug.log
 *.iml
 /.idea
 
-/src/components/VideoDetail.js
+
 /src/components/SearchBar.js
