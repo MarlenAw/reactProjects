@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Clock from './Clock';
+import ClickMeButton from './ClickMeButton';
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div>
         <Clock />
+        <ClickMeButton />
       </div>
     );
   }
