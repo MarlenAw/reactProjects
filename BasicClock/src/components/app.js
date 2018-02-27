@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Clock from './Clock';
 import ClickMeButton from './ClickMeButton';
+import ChangeColorOnClick from './ChangeColorOnClick';
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends Component {
       <div>
         <Clock />
         <ClickMeButton />
+        <ChangeColorOnClick />
       </div>
     );
   }
