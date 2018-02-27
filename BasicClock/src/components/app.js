@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
+import Clock from './Clock';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
   render() {
-    return <div>React simple starter</div>;
+    return (
+      <div>
+        <Clock />
+      </div>
+    );
   }
 }
 
