@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import resume from '../resume.json';
 
 class App extends Component {
   render() {
@@ -7,7 +8,7 @@ class App extends Component {
         <div className="sidebar-wrapper">
           <div className="profile-container">
             <img className="profile" src="assets/images/profile.png" alt="" />
-            <h1 className="name">Alan Doe</h1>
+            <h1 className="name">{resume.name}</h1>
             <h3 className="tagline">Full Stack Developer</h3>
           </div>
 
@@ -15,37 +16,28 @@ class App extends Component {
             <ul className="list-unstyled contact-list">
               <li className="email">
                 <i className="fa fa-envelope" />
-                <a href="mailto: yourname@email.com">alan.doe@website.com</a>
+                <a href="mailto: yourname@email.com">{resume.email}</a>
               </li>
               <li className="phone">
                 <i className="fa fa-phone" />
-                <a href="tel:0123 456 789">0123 456 789</a>
+                <a href="tel:0123 456 789">{resume.phone}</a>
               </li>
               <li className="website">
                 <i className="fa fa-globe" />
-                <a
-                  href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/"
-                  target="_blank"
-                >
-                  portfoliosite.com
+                <a href={resume.website} target="_blank">
+                  www.marlenawwad.com
                 </a>
               </li>
               <li className="linkedin">
                 <i className="fa fa-linkedin" />
-                <a href="#" target="_blank">
-                  linkedin.com/in/alandoe
+                <a href={resume.linkedin} target="_blank">
+                  linkedin.com/MarlenAw
                 </a>
               </li>
               <li className="github">
                 <i className="fa fa-github" />
-                <a href="#" target="_blank">
-                  github.com/username
-                </a>
-              </li>
-              <li className="twitter">
-                <i className="fa fa-twitter" />
-                <a href="https://twitter.com/3rdwave_themes" target="_blank">
-                  @twittername
+                <a href={resume.github} target="_blank">
+                  github.com/marlenaw
                 </a>
               </li>
             </ul>
@@ -53,14 +45,19 @@ class App extends Component {
           <div className="education-container container-block">
             <h2 className="container-block-title">Education</h2>
             <div className="item">
-              <h4 className="degree">MSc in Computer Science</h4>
-              <h5 className="meta">University of London</h5>
-              <div className="time">2011 - 2012</div>
+              <h4 className="degree">Full Stack Web Development</h4>
+              <h5 className="meta">Founders and Coders</h5>
+              <div className="time">2017 - 2018</div>
             </div>
             <div className="item">
-              <h4 className="degree">BSc in Applied Mathematics</h4>
-              <h5 className="meta">Bristol University</h5>
-              <div className="time">2007 - 2011</div>
+              <h4 className="degree">Full Stack Web Development</h4>
+              <h5 className="meta">John Bryce</h5>
+              <div className="time">2016 - 2017</div>
+            </div>
+            <div className="item">
+              <h4 className="degree">Computer Science</h4>
+              <h5 className="meta">University of Düsseldorf</h5>
+              <div className="time">2011 - 2014</div>
             </div>
           </div>
 
@@ -68,13 +65,16 @@ class App extends Component {
             <h2 className="container-block-title">Languages</h2>
             <ul className="list-unstyled interests-list">
               <li>
-                English <span className="lang-desc">(Native)</span>
+                Arabic <span className="lang-desc">(Native)</span>
               </li>
               <li>
-                French <span className="lang-desc">(Professional)</span>
+                Hebrew <span className="lang-desc">(High Level)</span>
               </li>
               <li>
-                Spanish <span className="lang-desc">(Professional)</span>
+                English <span className="lang-desc">(High Level)</span>
+              </li>
+              <li>
+                German <span className="lang-desc">(High Level)</span>
               </li>
             </ul>
           </div>
@@ -82,9 +82,10 @@ class App extends Component {
           <div className="interests-container container-block">
             <h2 className="container-block-title">Interests</h2>
             <ul className="list-unstyled interests-list">
-              <li>Climbing</li>
-              <li>Snowboarding</li>
-              <li>Cooking</li>
+              <li>Extreme Sports</li>
+              <li>Entrepreneurship</li>
+              <li>Technology</li>
+              <li>Blockchain</li>
             </ul>
           </div>
         </div>
@@ -270,21 +271,7 @@ class App extends Component {
             </h2>
             <div className="skillset">
               <div className="item">
-                <h3 className="level-title">Python &amp; Django</h3>
-                <div className="level-bar">
-                  <div className="level-bar-inner" data-level="98%" />
-                </div>
-              </div>
-
-              <div className="item">
                 <h3 className="level-title">Javascript &amp; jQuery</h3>
-                <div className="level-bar">
-                  <div className="level-bar-inner" data-level="98%" />
-                </div>
-              </div>
-
-              <div className="item">
-                <h3 className="level-title">Angular</h3>
                 <div className="level-bar">
                   <div className="level-bar-inner" data-level="98%" />
                 </div>
@@ -293,21 +280,14 @@ class App extends Component {
               <div className="item">
                 <h3 className="level-title">HTML5 &amp; CSS</h3>
                 <div className="level-bar">
-                  <div className="level-bar-inner" data-level="95%" />
+                  <div className="level-bar-inner" data-level="98%" />
                 </div>
               </div>
 
               <div className="item">
-                <h3 className="level-title">Ruby on Rails</h3>
+                <h3 className="level-title">React/Redux</h3>
                 <div className="level-bar">
-                  <div className="level-bar-inner" data-level="85%" />
-                </div>
-              </div>
-
-              <div className="item">
-                <h3 className="level-title">Sketch &amp; Photoshop</h3>
-                <div className="level-bar">
-                  <div className="level-bar-inner" data-level="60%" />
+                  <div className="level-bar-inner" data-level="90%" />
                 </div>
               </div>
             </div>
