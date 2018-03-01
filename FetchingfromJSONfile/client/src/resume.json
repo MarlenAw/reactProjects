@@ -7,28 +7,25 @@
   "github": "https://github.com/MarlenAw",
   "experiences": [
     {
-      "title": "Lead Developer",
-      "period": "2015 - Present",
-      "company": "Startup Hubs, San Francisco",
-      "companyURL": "http://programmingbuddy.club",
+      "title": "Full Stack web developer",
+      "period": "2017 - Present",
+      "company": "Founders and Coders",
       "details":
-        "Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo."
+        "Developed a user-friendly app for the Galilee Society using React/Redux. The app enables users to report a hazard anonymously and send that to the right authorities to take care of. Also the users can track their own reports by signing up using Google or Facebook. https://github.com/FACN3/easyRep . Also built an amazing Portfolio: http://marlenawwad.herokuapp.com/"
     },
     {
-      "title": "Senior Software Engineer",
-      "period": "2014 - 2015",
-      "company": "Google, London",
-      "companyURL": "http://programmingbuddy.club",
-      "details":
-        "Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo."
+      "title": "Content Manager",
+      "period": "2014 - 1016",
+      "company": "Toyga and Rushmore",
+      "details": "Content Manager as well as in charge of WordPress and SEO"
     }
   ],
   "projects": [
     {
-      "name": "Velocity",
-      "url": "http://programmingbuddy.club",
+      "name": "EasyRep",
+      "url": "https://github.com/FACN3/easyrep",
       "detail":
-        "A responsive website template designed to help startups promote, market and sell their products."
+        "Developed a user-friendly app for the Galilee Society using React/Redux. The app enables users to report a hazard anonymously and send that to the right authorities to take care of. Also the users can track their own reports by signing up using Google or Facebook"
     },
     {
       "name": "DevStudio",
