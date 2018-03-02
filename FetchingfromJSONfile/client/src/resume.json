@@ -28,29 +28,11 @@
         "Developed a user-friendly app for the Galilee Society using React/Redux. The app enables users to report a hazard anonymously and send that to the right authorities to take care of. Also the users can track their own reports by signing up using Google or Facebook"
     },
     {
-      "name": "DevStudio",
-      "url": "http://programmingbuddy.club",
-      "detail":
-        "A responsive website template designed to help startups promote, market and sell their products."
-    },
-    {
-      "name": "Tempo",
-      "url": "http://programmingbuddy.club",
-      "detail":
-        "A responsive website template designed to help startups promote, market and sell their products."
-    },
-    {
-      "name": "Atom",
-      "url": "http://programmingbuddy.club",
-      "detail":
-        "A responsive website template designed to help startups promote, market and sell their products."
-    },
-    {
-      "name": "Delta",
-      "url": "http://programmingbuddy.club",
-      "detail":
-        "A responsive website template designed to help startups promote, market and sell their products."
+      "name": "MarlenAwwad",
+      "url": "http://marlenawwad.herokuapp.com/",
+      "detail": "This was my very first project, building an amazing Portfolio"
     }
+
   ],
   "skills": [
     {
