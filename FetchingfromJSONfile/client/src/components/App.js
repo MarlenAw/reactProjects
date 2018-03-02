@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import resume from '../resume.json';
 import Experience from './Experience';
+import Skills from './Skills';
 
 class App extends Component {
   renderExperiences() {
@@ -9,6 +10,13 @@ class App extends Component {
       return <Experience item={item} key={i} />;
     });
   }
+
+  renderSkills(){
+    return resume.skills.map((item, i) => {
+      return <Skills item={item} key={i} />;
+    });
+  }
+
   render() {
     return (
       <div className="wrapper">
@@ -125,7 +133,7 @@ class App extends Component {
 
             {this.renderExperiences()}
 
-            
+
           </section>
 
           <section className="section projects-section">
@@ -217,26 +225,9 @@ class App extends Component {
               <i className="fa fa-rocket" />Skills &amp; Proficiency
             </h2>
             <div className="skillset">
-              <div className="item">
-                <h3 className="level-title">Javascript &amp; jQuery</h3>
-                <div className="level-bar">
-                  <div className="level-bar-inner" data-level="98%" />
-                </div>
-              </div>
 
-              <div className="item">
-                <h3 className="level-title">HTML5 &amp; CSS</h3>
-                <div className="level-bar">
-                  <div className="level-bar-inner" data-level="98%" />
-                </div>
-              </div>
+              {this.renderSkills()}
 
-              <div className="item">
-                <h3 className="level-title">React/Redux</h3>
-                <div className="level-bar">
-                  <div className="level-bar-inner" data-level="90%" />
-                </div>
-              </div>
             </div>
           </section>
         </div>

@@ -54,28 +54,19 @@
   ],
   "skills": [
     {
-      "name": "Python & Django",
-      "percent": "98%"
+      "name": "Javascript & jQuery",
+      "percent": "90%"
     },
     {
-      "name": "Javascript & jQuery",
+      "name": "HTML5 & CSS3",
+      "percent": "99%"
+    },{
+      "name": "React/Redux",
       "percent": "90%"
     },
     {
       "name": "Angular",
       "percent": "80%"
-    },
-    {
-      "name": "HTML5 & CSS",
-      "percent": "99%"
-    },
-    {
-      "name": "Ruby on Rails",
-      "percent": "70%"
-    },
-    {
-      "name": "Sketch & Photoshop",
-      "percent": "85%"
     }
   ],
   "education": [
