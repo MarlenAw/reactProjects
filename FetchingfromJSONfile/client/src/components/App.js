@@ -6,6 +6,7 @@ import Skills from './Skills';
 import Languages from './Languages';
 import Projects from './Projects';
 import Interests from './Interests';
+import Education from './Education';
 
 class App extends Component {
   renderExperiences() {
@@ -35,6 +36,12 @@ class App extends Component {
   renderInterests(){
     return resume.interests.map((item, i) => {
       return <Interests item={item} key={i} />
+    });
+  }
+
+  renderEducation(){
+    return resume.education.map((item, i) => {
+      return <Education item={item} key={i} />
     });
   }
 
@@ -80,21 +87,9 @@ class App extends Component {
           </div>
           <div className="education-container container-block">
             <h2 className="container-block-title">Education</h2>
-            <div className="item">
-              <h4 className="degree">Full Stack Web Development</h4>
-              <h5 className="meta">Founders and Coders</h5>
-              <div className="time">2017 - 2018</div>
-            </div>
-            <div className="item">
-              <h4 className="degree">Full Stack Web Development</h4>
-              <h5 className="meta">John Bryce</h5>
-              <div className="time">2016 - 2017</div>
-            </div>
-            <div className="item">
-              <h4 className="degree">Computer Science</h4>
-              <h5 className="meta">University of Düsseldorf</h5>
-              <div className="time">2011 - 2014</div>
-            </div>
+
+            {this.renderEducation()}
+
           </div>
 
           <div className="languages-container container-block">

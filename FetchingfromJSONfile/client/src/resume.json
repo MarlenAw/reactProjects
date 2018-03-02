@@ -53,14 +53,19 @@
   ],
   "education": [
     {
-      "degree": "MSc in Computer Science",
-      "university": "University of London",
-      "period": "2011 - 2012"
+      "degree": "Full Stack Web Development",
+      "university": "Founders and Coders",
+      "period": "2017 - 2018"
     },
     {
-      "degree": "BSc in Applied Mathematics",
-      "university": "Bristol University",
-      "period": "2007 - 2011"
+      "degree": "Full Stack Web Development",
+      "university": "John Bryce",
+      "period": "2016 - 2017"
+    },
+    {
+      "degree": "Computer Science",
+      "university": "University of Düsseldorf",
+      "period": "2011 - 2014"
     }
   ],
   "languages": [
