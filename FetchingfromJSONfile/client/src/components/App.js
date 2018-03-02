@@ -5,6 +5,7 @@ import Experience from './Experience';
 import Skills from './Skills';
 import Languages from './Languages';
 import Projects from './Projects';
+import Interests from './Interests';
 
 class App extends Component {
   renderExperiences() {
@@ -28,6 +29,12 @@ class App extends Component {
   renderProjects(){
     return resume.projects.map((item, i) => {
       return <Projects item={item} key={i} />
+    });
+  }
+
+  renderInterests(){
+    return resume.interests.map((item, i) => {
+      return <Interests item={item} key={i} />
     });
   }
 
@@ -97,37 +104,9 @@ class App extends Component {
 
           </div>
 
-          <div className="interests-container container-block">
-            <h2 className="container-block-title">Interests</h2>
-            <ul className="list-unstyled interests-list">
-              <li>Extreme Sports</li>
-              <li>Entrepreneurship</li>
-              <li>Technology</li>
-              <li>Blockchain</li>
-            </ul>
-          </div>
         </div>
 
         <div className="main-wrapper">
-          <section className="section summary-section">
-            <h2 className="section-title">
-              <i className="fa fa-user" />Career Profile
-            </h2>
-            <div className="summary">
-              <p>
-                Summarise your career here lorem ipsum dolor sit amet,
-                consectetuer adipiscing elit. You can{' '}
-                <a
-                  href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers/"
-                  target="_blank"
-                >
-                  download this free resume/CV template here
-                </a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis
-                natoque penatibus et magnis dis parturient montes, nascetur
-                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.
-              </p>
-            </div>
-          </section>
 
           <section className="section experiences-section">
             <h2 className="section-title">
@@ -155,6 +134,15 @@ class App extends Component {
             <div className="skillset">
 
               {this.renderSkills()}
+
+            </div>
+            <br/>
+            <br/>
+
+            <h2 className="section-title">Interests</h2>
+            <div className="">
+
+              {this.renderInterests()}
 
             </div>
           </section>
