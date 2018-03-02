@@ -83,16 +83,20 @@
   ],
   "languages": [
     {
-      "name": "English",
+      "name": "Arabic",
       "details": "Native"
     },
     {
-      "name": "French",
-      "details": "Professional"
+      "name": "Hebrew",
+      "details": "High Level"
     },
     {
-      "name": "Spanish",
-      "details": "Professional"
+      "name": "English",
+      "details": "High Level"
+    },
+    {
+      "name": "German",
+      "details": "High Level"
     }
   ],
   "interests": ["Climbing", "Snowboarding", "Cooking", "Coding"]

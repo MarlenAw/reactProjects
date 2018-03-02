@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import resume from '../resume.json';
 import Experience from './Experience';
 import Skills from './Skills';
+import Languages from './Languages';
 
 class App extends Component {
   renderExperiences() {
@@ -14,6 +15,12 @@ class App extends Component {
   renderSkills(){
     return resume.skills.map((item, i) => {
       return <Skills item={item} key={i} />;
+    });
+  }
+
+  renderLanguages(){
+    return resume.languages.map((item, i) => {
+      return <Languages item={item} key={i} />
     });
   }
 
@@ -78,20 +85,9 @@ class App extends Component {
 
           <div className="languages-container container-block">
             <h2 className="container-block-title">Languages</h2>
-            <ul className="list-unstyled interests-list">
-              <li>
-                Arabic <span className="lang-desc">(Native)</span>
-              </li>
-              <li>
-                Hebrew <span className="lang-desc">(High Level)</span>
-              </li>
-              <li>
-                English <span className="lang-desc">(High Level)</span>
-              </li>
-              <li>
-                German <span className="lang-desc">(High Level)</span>
-              </li>
-            </ul>
+
+            {this.renderLanguages()}
+            
           </div>
 
           <div className="interests-container container-block">
