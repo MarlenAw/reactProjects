@@ -13,7 +13,8 @@ const TodosList = (props) => {
       {props.missions.map(mission => {
         return(
           <li key={mission.timing} id={mission.timing}>
-            <p>{mission.toDo}</p>
+            <p>{mission.toDo} {mission.priority}</p>
+
 
             <button onClick={deleteMe} className="btn btn-danger">
               Delete

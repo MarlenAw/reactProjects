@@ -5,8 +5,10 @@ const Form = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const todo = e.target.text.value;
-    props.addToDo(todo);
+    const priority = e.target.priority.value;
+    props.addToDo(todo, priority);
     e.target.text.value = '';
+    e.target.priority.value ='';
   }
 
   return (
@@ -14,8 +16,15 @@ const Form = (props) => {
       <form onSubmit={handleSubmit}>
 
         <div>
-          <label>Ente your next TO DO</label> <br />
-          <input type="text" name="text" required />
+          <label>Ente your next TO DO: </label> <input type="text" name="text" required />
+          <br/>
+          <label>Give it a Priority: </label> <input name="priority" type="number" required/>
+
+        </div>
+
+        <br/>
+
+        <div>
         </div>
 
         <br/>

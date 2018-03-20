@@ -16,11 +16,16 @@ export default class App extends Component {
     this.deleteMission = this.deleteMission.bind(this);
   }
 
-  addToDo(toDo){
+  addToDo(toDo, priority){
     const timing = Date.now();
-    const newwtoDo = {toDo, timing};
+    const newwtoDo = {toDo, timing, priority};
 
     var newToDo = this.state.missions.concat([newwtoDo]);
+
+    newToDo = newToDo.sort((a, b) => {
+      return a.priority - b.priority;
+    });
+
     this.setState({missions: newToDo});
   }
 
