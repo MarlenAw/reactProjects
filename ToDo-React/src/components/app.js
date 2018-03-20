@@ -13,15 +13,25 @@ export default class App extends Component {
     }
 
     this.addToDo = this.addToDo.bind(this);
+    this.deleteMission = this.deleteMission.bind(this);
   }
 
   addToDo(toDo){
-    const newwtoDo = {toDo};
+    const timing = Date.now();
+    const newwtoDo = {toDo, timing};
 
     var newToDo = this.state.missions.concat([newwtoDo]);
     this.setState({missions: newToDo});
   }
 
+  deleteMission(id){
+
+    const newTodo = this.state.missions.filter(mission => {
+      return mission.timing != id;
+    });
+
+    this.setState({missions: newTodo});
+  }
 
   render() {
     return (
@@ -31,7 +41,7 @@ export default class App extends Component {
         <Form addToDo={this.addToDo}/>
 
         <ul>
-          <TodosList missions={this.state.missions}/>
+          <TodosList missions={this.state.missions} deleteMission={this.deleteMission}/>
         </ul>
 
       </div>
